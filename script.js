@@ -3,6 +3,7 @@ const message = document.querySelector("#message");
 const button = document.querySelector("#send");
 
 button.addEventListener("click", () => {
+const msg = message.value;
 message.value = "";
 
   fetch("https://lev-bot.adaptable.app/message", {
@@ -11,7 +12,7 @@ message.value = "";
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      message: message.value,
+      message: msg,
       peer_id: peer_id.value,
     }),
   });
